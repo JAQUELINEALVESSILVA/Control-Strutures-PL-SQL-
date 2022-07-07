@@ -1,0 +1,18 @@
+declare 
+v_inner number:= 1;
+
+begin
+<<outeloop>>
+  for outter_loop in  1..5 loop
+    dbms_output.put_line('My outer_loop counter is : '|| outter_loop); 
+    v_inner := 1;
+    
+  <<inner_loop>>
+    loop
+    v_inner := v_inner +1;
+    dbms_output.put_line('My inner_loop counter is : '|| v_inner);
+    exit when v_inner * outter_loop >=15;
+    
+  end loop inner_loop;
+  end LOOP outeloop;
+end;
